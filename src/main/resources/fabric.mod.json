@@ -1,17 +1,17 @@
 {
 	"schemaVersion": 1,
 	"id": "music-identifier",
-	"version": "${version}",
+	"version": "1.0.0",
 	"name": "music-identifier",
-	"description": "Shows what song is currently playing",
+	"description": "Shows what background song is currently playing",
 	"authors": [
 		"Beatzoid"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/mod/music-identifier",
+		"sources": "https://github.com/Beatzoid/music-identifier"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/music-identifier/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -37,8 +37,5 @@
 		"minecraft": "~1.19.4",
 		"java": ">=17",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }
