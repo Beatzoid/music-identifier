@@ -19,6 +19,7 @@ public class MusicHandler implements SoundInstanceListener {
 
         if (!(screen instanceof GameMenuScreen) && sound.getCategory() == SoundCategory.MUSIC) {
             Text name = Util.getSoundName(sound);
+            System.out.println(sound);
             if (name == null) return;
 
             Util.setNowPlaying(name);

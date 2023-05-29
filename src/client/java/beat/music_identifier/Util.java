@@ -21,9 +21,9 @@ public class Util {
         // Gets the sound name and then removes the .ogg at the end
         String soundLocation = instance.getSound().getLocation().toString().split("\\.")[0];
         // If its music or it is listed in the language file
-        if (soundLocation.startsWith("minecraft:sounds/music") && I18n.hasTranslation("music_identifier.sound." + soundLocation)) {
+        if (soundLocation.startsWith("minecraft:sounds/music") && I18n.hasTranslation("music-identifier.sound." + soundLocation)) {
             // Return the text of the translated song name
-            return Text.of(I18n.translate("music_identifier.sound." + soundLocation));
+            return Text.translatable("music-identifier.sound." + soundLocation);
         }
 
         // Song isn't music or isn't translated

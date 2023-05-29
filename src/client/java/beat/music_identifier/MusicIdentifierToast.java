@@ -60,7 +60,7 @@ public class MusicIdentifierToast implements Toast {
         }
 
         // Light Gray Text
-        manager.getClient().textRenderer.draw(matrices, I18n.translate("music_identifier.toast.now_playing_title"), 28.0f, 6.0f, 0xff838383);
+        manager.getClient().textRenderer.draw(matrices, Text.translatable("music-identifier.toast.now_playing_title"), 28.0f, 6.0f, 0xff838383);
 
         if (lines.size() == 1) {
             manager.getClient().textRenderer.draw(matrices, lines.get(0), 28, 18, 0xffffffff);
