@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "music-identifier",
 	"version": "1.0.0",
-	"name": "music-identifier",
+	"name": "Music Identifier",
 	"description": "Shows what background song is currently playing",
 	"authors": [
 		"Beatzoid"
