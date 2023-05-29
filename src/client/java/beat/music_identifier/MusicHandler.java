@@ -2,6 +2,8 @@ package beat.music_identifier;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.GameMenuScreen;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.client.sound.SoundInstanceListener;
 import net.minecraft.client.sound.WeightedSoundSet;
@@ -9,17 +11,14 @@ import net.minecraft.client.toast.Toast;
 import net.minecraft.client.toast.ToastManager;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
-import net.minecraft.world.World;
 
 public class MusicHandler implements SoundInstanceListener {
     @Override
     public void onSoundPlayed(SoundInstance sound, WeightedSoundSet soundSet) {
         MusicIdentifierConfig config = AutoConfig.getConfigHolder(MusicIdentifierConfig.class).getConfig();
-        World world = MinecraftClient.getInstance().world;
+        Screen screen = MinecraftClient.getInstance().currentScreen;
 
-        // world != null make sure that the user is in a world
-        // and not the main menu
-        if (sound.getCategory() == SoundCategory.MUSIC && world != null) {
+        if (!(screen instanceof GameMenuScreen) && sound.getCategory() == SoundCategory.MUSIC) {
             Text name = Util.getSoundName(sound);
             if (name == null) return;
 
