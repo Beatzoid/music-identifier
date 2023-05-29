@@ -10,7 +10,10 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.sound.MusicTracker;
 import net.minecraft.client.toast.ToastManager;
+import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
+
+import java.util.Objects;
 
 public class MusicIdentifierClient implements ClientModInitializer {
     public static String KEYBINDING_CATEGORY = "music_identifier.key.categories.music_identifier";
@@ -42,20 +45,29 @@ public class MusicIdentifierClient implements ClientModInitializer {
                 if (client.options.sneakKey.isPressed()) {
                     client.getMusicTracker().stop();
                     musicTrackerMixin.setTimeUntilNextSong(Integer.MAX_VALUE);
+                    Util.nowPlaying = null;
                 } else {
                     musicTrackerMixin.setTimeUntilNextSong(0);
                 }
             }
 
             if (displayPlayingSongKeyBind.isPressed()) {
+                Text name;
+
+                if (Util.nowPlaying == null) {
+                    name = Text.of("nothing");
+                } else {
+                    name = Util.getNowPlaying();
+                }
+
                 MusicIdentifierConfig config = AutoConfig.getConfigHolder(MusicIdentifierConfig.class).getConfig();
 
                 if (config.musicStyle == MusicIdentifierConfig.Style.Hotbar)
-                    MinecraftClient.getInstance().inGameHud.setRecordPlayingOverlay(Util.getNowPlaying());
+                    MinecraftClient.getInstance().inGameHud.setRecordPlayingOverlay(name);
                 else if (config.musicStyle == MusicIdentifierConfig.Style.Toast) {
                     ToastManager toastManager = MinecraftClient.getInstance().getToastManager();
                     toastManager.clear();
-                    toastManager.add(new MusicIdentifierToast(Util.nowPlaying));
+                    toastManager.add(new MusicIdentifierToast(name));
                 }
             }
         });
