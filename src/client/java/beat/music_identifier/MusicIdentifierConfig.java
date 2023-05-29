@@ -6,7 +6,7 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import me.shedaniel.clothconfig2.gui.entries.SelectionListEntry;
 import org.jetbrains.annotations.NotNull;
 
-@Config(name = "music_identifier")
+@Config(name = "music-identifier")
 public class MusicIdentifierConfig implements ConfigData {
     @ConfigEntry.Gui.Tooltip
     @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
@@ -19,19 +19,19 @@ public class MusicIdentifierConfig implements ConfigData {
         Hotbar {
             @Override
             public @NotNull String getKey() {
-                return "music_identifier.config.style.hotbar";
+                return "music-identifier.config.style.hotbar";
             }
         },
         Toast {
             @Override
             public @NotNull String getKey() {
-                return "music_identifier.config.style.toast";
+                return "music-identifier.config.style.toast";
             }
         },
         Disabled {
             @Override
             public @NotNull String getKey() {
-                return "music_identifier.config.style.disabled";
+                return "music-identifier.config.style.disabled";
             }
         }
     }
