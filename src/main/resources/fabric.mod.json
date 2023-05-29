@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "music-identifier",
+	"version": "${version}",
+	"name": "music-identifier",
+	"description": "Shows what song is currently playing",
+	"authors": [
+		"Beatzoid"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/music-identifier/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"beat.music_identifier.MusicIdentifierMod"
+		],
+		"client": [
+			"beat.music_identifier.MusicIdentifierClient"
+		],
+		"modmenu": [
+			"beat.music_identifier.ModMenuIntegration"
+		]
+	},
+	"mixins": [
+      "music-identifier.mixins.json",
+		{
+			"config": "music-identifier.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.14.21",
+		"minecraft": "~1.19.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
